@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 function SeatingChart() {
   const [selectedSeats, setSelectedSeats] = useState([]);
-
+  const [seatPreference, setSeatPreference] = useState('No Preference');
+  const [familySize, setFamilySize] = useState(2);
 
   const handleSeatClick = (seat) => {
     // Toggle selected seats on click
@@ -18,7 +19,9 @@ function SeatingChart() {
     return (
       <td
         key={seat}
-        className={`text-center hover:bg-blue-200 bg-gray-300`}
+        className={`text-center hover:bg-blue-200 bg-gray-300 ${
+          selectedSeats.includes(seat) ? 'bg-green-500' : ''
+        }`}
         onClick={() => handleSeatClick(seat)}
         style={{ width: '50px', height: '50px' }}
       >
@@ -60,7 +63,36 @@ function SeatingChart() {
         </div>
       </div>
 
-      <div>{/* Other content in the second column */}</div>
+      <div className='p-4'>
+        <button onClick={() => setSeatPreference('No Preference')}>No Preference</button>
+        <button onClick={() => setSeatPreference('Aisle')}>Aisle</button>
+        <button onClick={() => setSeatPreference('Middle')}>Middle</button>
+        <button onClick={() => setSeatPreference('Window')}>Window</button>
+        <div className='mt-3'>
+          <button onClick={() => setSeatPreference('Specific Seat')}>
+            Specific Seat
+          </button>
+          {seatPreference === 'Specific Seat' && (
+            <input
+              type='text'
+              placeholder='Enter seat(s)'
+              value={selectedSeats.join(', ')}
+              readOnly
+            />
+          )}
+        </div>
+        <div className='mt-3'>
+          <button onClick={() => setSeatPreference('With Family')}>With Family</button>
+          {seatPreference === 'With Family' && (
+            <input
+              type='number'
+              placeholder='Family Size'
+              value={familySize}
+              onChange={(e) => setFamilySize(e.target.value)}
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 }
