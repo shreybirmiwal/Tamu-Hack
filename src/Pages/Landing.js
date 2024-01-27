@@ -1,7 +1,7 @@
 import React from "react";
 import { MapWrapper } from "./MapWrapper";
 
-export const Container = () => {
+export const Landing = () => {
   return (
     <div className="inline-flex flex-col items-start relative bg-white">
       <div className="flex w-[1440px] h-[1020px] items-center pl-[120px] pr-0 py-0 relative bg-[#191919] overflow-hidden">

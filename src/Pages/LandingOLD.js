@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Landing = () => {
+export const Landing1 = () => {
   return (
     <div className="inline-flex flex-col items-start relative bg-white">
       <div className="flex w-[1920px] items-center pl-[120px] pr-0 py-0 relative flex-[0_0_auto] bg-[#191919] overflow-hidden">
