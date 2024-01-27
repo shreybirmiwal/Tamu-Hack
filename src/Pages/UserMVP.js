@@ -1,6 +1,7 @@
 import React from 'react'
 import SeatCard from '../Components/SeatCard';
 import Aisle from '../Components/Aisle';
+import { useState } from 'react';
 
 const seatList = [];
 
@@ -16,10 +17,20 @@ for (let row = 1; row <= 20; row++) {
   }
 
 function UserMVP() {
+
+
+    const handleSeatSelection = (seat) => {
+    };
+
+    const handleFamilySelection = () => {
+        console.log("Selected 'With family of 3'");
+    };
+
+
   return (
 
     <div className='grid grid-cols-2'>
-        <div className="grid grid-cols-7 gap-4">
+        <div className="grid grid-cols-7">
             {seatList.map((seat, index) => (
                 <React.Fragment key={index}>
                     <SeatCard seatNumber={seat.seatNumber} isTaken={seat.isTaken} />
@@ -27,9 +38,53 @@ function UserMVP() {
                     {(index + 1) % 3 === 0 && (index + 1) % 6 !== 0 && (
                         <Aisle />
                     )}
-                    
+
                 </React.Fragment>
             ))}
+        </div>
+
+
+
+
+        <div className="p-4">
+            <div className="mb-4">
+                <button
+                className={'mr-2 px-4 py-2 border rounded bg-blue-500 text-white'}
+                onClick={() => handleSeatSelection('Any seat')}
+                >
+                Any seat
+                </button>
+                <button
+                className={'mr-2 px-4 py-2 border rounded bg-blue-500 text-white'}
+                onClick={() => handleSeatSelection('Aisle seat')}
+                >
+                Aisle seat
+                </button>
+                <button
+                className={'mr-2 px-4 py-2 border rounded bg-blue-500 text-white'}
+                onClick={() => handleSeatSelection('Middle seat')}
+                >
+                Middle seat
+                </button>
+                <button
+                className={'mr-2 px-4 py-2 border rounded bg-blue-500 text-white'}
+                onClick={() => handleSeatSelection('Window seat')}
+                >
+                Window seat
+                </button>
+                <button
+                className={'mr-2 px-4 py-2 border rounded bg-blue-500 text-white'}
+                onClick={() => handleSeatSelection('Specific seat')}
+                >
+                Specific seat
+                </button>
+                <button
+                className={'px-4 py-2 border rounded bg-blue-500 text-white'}
+                onClick={handleFamilySelection}
+                >
+                With family of 3
+                </button>
+            </div>
         </div>
     </div>
 

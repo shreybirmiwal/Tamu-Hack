@@ -9,8 +9,6 @@ const Aisle = () => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
   };
 
   return (
