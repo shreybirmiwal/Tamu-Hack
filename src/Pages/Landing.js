@@ -24,7 +24,7 @@ export const Landing = () => {
           </button>
         </div>
         {/* <img className="relative w-[719px] h-[1020px] ml-[-161px] object-cover" alt="Giphy" src="giphy-1.png" /> */}
-        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/907077706?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="airplanes_-_282 (720p)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        <div className="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/907077706?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" className="position:absolute;top:0;left:0;width:100%;height:100%;" title="airplanes_-_282 (720p)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
       </div>
       <div className="flex flex-col w-[1440px] h-[884px] items-start gap-[48px] p-[120px] relative bg-white overflow-hidden">
         <div className="flex flex-col items-start gap-[24px] relative self-stretch w-full flex-[0_0_auto]">
