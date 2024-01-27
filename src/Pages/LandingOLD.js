@@ -1,10 +1,9 @@
 import React from "react";
-import { MapWrapper } from "./MapWrapper";
 
-export const Container = () => {
+export const Landing = () => {
   return (
     <div className="inline-flex flex-col items-start relative bg-white">
-      <div className="flex w-[1440px] h-[1020px] items-center pl-[120px] pr-0 py-0 relative bg-[#191919] overflow-hidden">
+      <div className="flex w-[1920px] items-center pl-[120px] pr-0 py-0 relative flex-[0_0_auto] bg-[#191919] overflow-hidden">
         <div className="min-w-[762px] max-w-[816px] items-start gap-[64px] flex-1 grow flex flex-col relative">
           <div className="flex flex-col items-start gap-[24px] relative self-stretch w-full flex-[0_0_auto]">
             <div className="flex items-start gap-[10px] relative self-stretch w-full flex-[0_0_auto]">
@@ -24,10 +23,9 @@ export const Container = () => {
             </button>
           </button>
         </div>
-        <img className="relative w-[719px] h-[1020px] ml-[-161px] object-cover" alt="Giphy" src="giphy-1.png" />
-        <MapWrapper className="!ml-[-161px]" />
+        <img className="relative w-[1199px] h-[1001px] ml-[-161px] object-cover" alt="Giphy" src="giphy-1.png" />
       </div>
-      <div className="flex flex-col w-[1440px] h-[884px] items-start gap-[48px] p-[120px] relative bg-white overflow-hidden">
+      <div className="items-start p-[120px] flex flex-col w-[1920px] gap-[48px] relative flex-[0_0_auto] bg-white">
         <div className="flex flex-col items-start gap-[24px] relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex max-w-[1060px] items-start gap-[10px] relative self-stretch w-full flex-[0_0_auto]">
             <div className="relative flex-1 mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-[#191919] text-[72px] tracking-[-2.88px] leading-[normal]">
@@ -38,7 +36,7 @@ export const Container = () => {
             Discover the powerful features of SeatWise that will revolutionize your flying experience.
           </p>
         </div>
-        <div className="justify-center gap-[4px_4px] mb-[-120.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
+        <div className="justify-center gap-[4px_4px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col min-w-[400px] max-w-[610px] items-start justify-center gap-[12px] p-[24px] relative flex-1 grow bg-[#f7f7f7] rounded-[10px] overflow-hidden">
             <div className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-black text-[40px] tracking-[-1.60px] leading-[normal]">
               Smart Seating Algorithm
@@ -92,7 +90,7 @@ export const Container = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[1440px] h-[1114px] items-start gap-[48px] p-[120px] relative bg-white overflow-hidden">
+      <div className="items-start p-[120px] flex flex-col w-[1920px] gap-[48px] relative flex-[0_0_auto] bg-white">
         <div className="max-w-[816px] items-start gap-[12px] self-stretch w-full flex-[0_0_auto] flex flex-col relative">
           <div className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-[#191919] text-[72px] tracking-[-2.88px] leading-[normal]">
             Optimizing Airplane Seating
@@ -103,7 +101,7 @@ export const Container = () => {
             seat pricing system.
           </p>
         </div>
-        <div className="gap-[0px_32px] mb-[-120.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
+        <div className="gap-[0px_32px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col min-w-[400px] items-start justify-center gap-[12px] relative flex-1 grow rounded-[20px] overflow-hidden">
             <div className="flex items-center relative self-stretch w-full flex-[0_0_auto]">
               <div className="flex flex-col w-[82px] items-center justify-center gap-[12px] px-[32px] py-[24px] relative bg-[#191919] rounded-[60px] overflow-hidden">
@@ -193,7 +191,7 @@ export const Container = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[1440px] h-[625px] items-start gap-[48px] p-[120px] relative bg-white overflow-hidden">
+      <div className="items-start p-[120px] flex flex-col w-[1920px] gap-[48px] relative flex-[0_0_auto] bg-white">
         <div className="flex flex-col items-start gap-[24px] relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex max-w-[1060px] items-start gap-[10px] relative self-stretch w-full flex-[0_0_auto]">
             <div className="relative flex-1 mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-[#191919] text-[72px] tracking-[-2.88px] leading-[normal]">
@@ -204,7 +202,7 @@ export const Container = () => {
             Discover the benefits of using SeatWise
           </p>
         </div>
-        <div className="justify-center gap-[4px_4px] mb-[-120.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
+        <div className="justify-center gap-[4px_4px] overflow-hidden flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col min-w-[400px] max-w-[610px] items-start justify-center gap-[12px] p-[24px] relative flex-1 grow bg-[#f7f7f7] rounded-[10px] overflow-hidden">
             <div className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-black text-[40px] tracking-[-1.60px] leading-[normal]">
               Improved Customer Satisfaction
@@ -231,7 +229,7 @@ export const Container = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[1440px] h-[828px] items-start gap-[48px] p-[120px] relative bg-white">
+      <div className="items-start p-[120px] flex flex-col w-[1920px] gap-[48px] relative flex-[0_0_auto] bg-white">
         <div className="max-w-[816px] items-start gap-[12px] self-stretch w-full flex-[0_0_auto] flex flex-col relative">
           <p className="relative w-[816px] mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-[#191919] text-[72px] tracking-[-2.88px] leading-[normal]">
             What our users are saying
@@ -240,7 +238,7 @@ export const Container = () => {
             Don&#39;t just take our word for it. See what our users have to say about SeatWise.
           </p>
         </div>
-        <div className="justify-center gap-[12px_12px] mb-[-59.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
+        <div className="justify-center gap-[12px_12px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex min-w-[552px] max-w-[560px] items-start gap-[16px] p-[16px] relative flex-1 grow bg-[#f7f7f7] rounded-[20px] overflow-hidden">
             <div className="relative w-[64px] h-[64px] bg-black rounded-[60px] overflow-hidden">
               <div className="absolute top-[25px] left-[14px] [font-family:'Inter-Black',Helvetica] font-black text-black text-[10px] tracking-[-0.40px] leading-[normal] whitespace-nowrap">
@@ -307,17 +305,17 @@ export const Container = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[1440px] h-[441px] items-center justify-center gap-[48px] px-0 py-[120px] relative bg-white">
-        <div className="items-center justify-center gap-[12px] self-stretch w-full flex-[0_0_auto] mt-[-16.00px] flex flex-col relative">
+      <div className="items-center justify-center px-0 py-[120px] flex flex-col w-[1920px] gap-[48px] relative flex-[0_0_auto] bg-white">
+        <div className="items-center justify-center gap-[12px] self-stretch w-full flex-[0_0_auto] flex flex-col relative">
           <p className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-[#191919] text-[72px] text-center tracking-[-2.88px] leading-[normal]">
             Optimize Your Airplane Seating Experience
           </p>
         </div>
-        <button className="all-[unset] box-border inline-flex px-[100px] py-[32px] flex-[0_0_auto] mb-[-16.00px] bg-black items-center justify-center gap-[10px] relative rounded-[10px] overflow-hidden">
-          <button className="all-[unset] box-border w-fit text-white text-[28px] tracking-[-1.12px] relative mt-[-7.00px] [font-family:'Inter-Bold',Helvetica] font-bold text-center leading-[normal]">
-            Try Now
-          </button>
-        </button>
+        <div className="inline-flex px-[100px] py-[32px] flex-[0_0_auto] bg-black items-center justify-center gap-[10px] relative rounded-[10px] overflow-hidden">
+          <p className="w-fit text-white text-[28px] tracking-[-1.12px] relative mt-[-7.00px] [font-family:'Inter-Bold',Helvetica] font-bold text-center leading-[normal]">
+            Sign Up or Download Now
+          </p>
+        </div>
       </div>
     </div>
   );
