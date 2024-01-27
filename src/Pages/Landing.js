@@ -3,7 +3,7 @@ import React from "react";
 export const Landing = () => {
   return (
     <div className="inline-flex flex-col items-start relative bg-white">
-      <div className="flex w-[1440px] h-[1020px] items-center pl-[120px] pr-0 py-0 relative bg-[#191919] overflow-hidden">
+      <div className="flex w-[1440px] h-[1020px] items-center pl-[120px] pr-0 py-0 relative bg-[#191919]">
         <div className="min-w-[762px] max-w-[816px] items-start gap-[64px] flex-1 grow flex flex-col relative">
           <div className="flex flex-col items-start gap-[24px] relative self-stretch w-full flex-[0_0_auto]">
             <div className="flex items-start gap-[10px] relative self-stretch w-full flex-[0_0_auto]">
@@ -23,10 +23,8 @@ export const Landing = () => {
             </button>
           </button>
         </div>
-        {/* <img className="relative w-[719px] h-[1020px] ml-[-161px] object-cover" alt="Giphy" src="giphy-1.png" /> */}
-        <div className="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/907077706?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" className="position:absolute;top:0;left:0;width:100%;height:100%;" title="airplanes_-_282 (720p)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
       </div>
-      <div className="flex flex-col w-[1440px] h-[884px] items-start gap-[48px] p-[120px] relative bg-white overflow-hidden">
+      <div className="flex flex-col w-[1440px] h-[1000px] items-start gap-[48px] p-[120px] relative bg-white">
         <div className="flex flex-col items-start gap-[24px] relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex max-w-[1060px] items-start gap-[10px] relative self-stretch w-full flex-[0_0_auto]">
             <div className="relative flex-1 mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-[#191919] text-[72px] tracking-[-2.88px] leading-[normal]">
@@ -37,7 +35,7 @@ export const Landing = () => {
             Discover the powerful features of SeatWise that will revolutionize your flying experience.
           </p>
         </div>
-        <div className="justify-center gap-[4px_4px] mb-[-120.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
+        <div className="justify-center gap-[4px_4px] mb-[-69.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col min-w-[400px] max-w-[610px] items-start justify-center gap-[12px] p-[24px] relative flex-1 grow bg-[#f7f7f7] rounded-[10px] overflow-hidden">
             <div className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-black text-[40px] tracking-[-1.60px] leading-[normal]">
               Smart Seating Algorithm
@@ -91,7 +89,7 @@ export const Landing = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[1440px] h-[1114px] items-start gap-[48px] p-[120px] relative bg-white overflow-hidden">
+      <div className="flex flex-col w-[1440px] h-[1500px] items-start gap-[48px] p-[120px] relative bg-white">
         <div className="max-w-[816px] items-start gap-[12px] self-stretch w-full flex-[0_0_auto] flex flex-col relative">
           <div className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-[#191919] text-[72px] tracking-[-2.88px] leading-[normal]">
             Optimizing Airplane Seating
@@ -102,7 +100,7 @@ export const Landing = () => {
             seat pricing system.
           </p>
         </div>
-        <div className="gap-[0px_32px] mb-[-120.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
+        <div className="gap-[0px_32px] mb-[-31.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col min-w-[400px] items-start justify-center gap-[12px] relative flex-1 grow rounded-[20px] overflow-hidden">
             <div className="flex items-center relative self-stretch w-full flex-[0_0_auto]">
               <div className="flex flex-col w-[82px] items-center justify-center gap-[12px] px-[32px] py-[24px] relative bg-[#191919] rounded-[60px] overflow-hidden">
@@ -192,7 +190,7 @@ export const Landing = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[1440px] h-[625px] items-start gap-[48px] p-[120px] relative bg-white overflow-hidden">
+      <div className="flex flex-col w-[1440px] h-[800px] items-start gap-[48px] p-[120px] relative bg-white">
         <div className="flex flex-col items-start gap-[24px] relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex max-w-[1060px] items-start gap-[10px] relative self-stretch w-full flex-[0_0_auto]">
             <div className="relative flex-1 mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-[#191919] text-[72px] tracking-[-2.88px] leading-[normal]">
@@ -203,7 +201,7 @@ export const Landing = () => {
             Discover the benefits of using SeatWise
           </p>
         </div>
-        <div className="justify-center gap-[4px_4px] mb-[-120.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
+        <div className="justify-center gap-[4px_4px] mb-[-60.00px] flex flex-wrap items-start relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col min-w-[400px] max-w-[610px] items-start justify-center gap-[12px] p-[24px] relative flex-1 grow bg-[#f7f7f7] rounded-[10px] overflow-hidden">
             <div className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Black',Helvetica] font-black text-black text-[40px] tracking-[-1.60px] leading-[normal]">
               Improved Customer Satisfaction
