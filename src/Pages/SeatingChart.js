@@ -2,15 +2,44 @@ import React, { useState } from 'react';
 
 function SeatingChart() {
   const [selectedSeats, setSelectedSeats] = useState([]);
-  const [seatPreference, setSeatPreference] = useState('No Preference');
+  const [seatPreference, setSeatPreference] = useState('');
   const [familySize, setFamilySize] = useState(2);
+
+  const setNoPreference = () => {
+    setSelectedSeats([])
+    setSeatPreference('No Preference');
+  };
+
+  const setAisle = () => {
+    setSelectedSeats([])
+    setSeatPreference('Aisle');
+  };
+
+  const setMiddle = () => {
+    setSelectedSeats([])
+    setSeatPreference('Middle');
+  };
+
+  const setWindow = () => {
+    setSelectedSeats([])
+    setSeatPreference('Window');
+  };
+
+  const setSpecificSeat = () => {
+    setSeatPreference('Specific Seat');
+  };
+
+  const setWithFamily = () => {
+    setSelectedSeats([])
+    setSeatPreference('With Family');
+  };
 
   const handleSeatClick = (seat) => {
     // Toggle selected seats on click
     if (selectedSeats.includes(seat)) {
       setSelectedSeats(selectedSeats.filter((selectedSeat) => selectedSeat !== seat));
     } else {
-      setSelectedSeats([...selectedSeats, seat]);
+        setSelectedSeats([seat]);
     }
   };
 
@@ -63,36 +92,54 @@ function SeatingChart() {
         </div>
       </div>
 
-      <div className='p-4'>
-        <button onClick={() => setSeatPreference('No Preference')}>No Preference</button>
-        <button onClick={() => setSeatPreference('Aisle')}>Aisle</button>
-        <button onClick={() => setSeatPreference('Middle')}>Middle</button>
-        <button onClick={() => setSeatPreference('Window')}>Window</button>
+      <div className='p-4 text-center'>
+        <button
+            onClick={setNoPreference}
+            className='bg-blue-200 text-blue-700 px-4 py-2 rounded-md m-1'
+        >
+            No Preference
+        </button>
+        <br />
+        <button onClick={setAisle} className='bg-blue-200 text-blue-700 px-4 py-2 rounded-md m-1'>
+            Aisle
+        </button>
+        <br />
+        <button onClick={setMiddle} className='bg-blue-200 text-blue-700 px-4 py-2 rounded-md m-1'>
+            Middle
+        </button>
+        <br />
+        <button onClick={setWindow} className='bg-blue-200 text-blue-700 px-4 py-2 rounded-md m-1'>
+            Window
+        </button>
+        <br />
         <div className='mt-3'>
-          <button onClick={() => setSeatPreference('Specific Seat')}>
+            <button onClick={setSpecificSeat} className='bg-blue-200 text-blue-700 px-4 py-2 rounded-md'>
             Specific Seat
-          </button>
-          {seatPreference === 'Specific Seat' && (
+            </button>
             <input
-              type='text'
-              placeholder='Enter seat(s)'
-              value={selectedSeats.join(', ')}
-              readOnly
+                type='text'
+                placeholder='Click on Seats'
+                value={selectedSeats.join(', ')}
+                readOnly
+                className='ml-2 p-2 border rounded-md'
             />
-          )}
         </div>
         <div className='mt-3'>
-          <button onClick={() => setSeatPreference('With Family')}>With Family</button>
-          {seatPreference === 'With Family' && (
-            <input
-              type='number'
-              placeholder='Family Size'
-              value={familySize}
-              onChange={(e) => setFamilySize(e.target.value)}
-            />
-          )}
+            <button onClick={setWithFamily} className='bg-blue-200 text-blue-700 px-4 py-2 rounded-md'>
+            With Family
+            </button>
+            <div className='ml-2'>
+                <input
+                type='number'
+                placeholder='Family Size'
+                value={familySize}
+                onChange={(e) => setFamilySize(e.target.value)}
+                className='p-2 border rounded-md'
+                />
+            </div>
         </div>
-      </div>
+        </div>
+
     </div>
   );
 }
