@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { db } from '../firebase';
 import { useEffect } from 'react';
+import { getDocs, collection, doc, updateDoc, arrayUnion, increment } from 'firebase/firestore';
 
 function SeatingChart() {
 
@@ -14,17 +15,18 @@ function SeatingChart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const documentRef = db.collection('default').doc('default');
-        const documentData = await documentRef.get();
-        if (documentData.exists) {
-          const seatsTaken = documentData.data().seatsTaken || [];
-          setSeatsReserved(seatsTaken);
-        }
+        const querySnapshot = await getDocs(collection(db, 'default'));
+        const seatsTaken = [];
+        querySnapshot.forEach((doc) => {
+          seatsTaken.push(...doc.data().seatsTaken);
+        });
+        console.log("TAKEN SEATS", seatsTaken);
+        setSeatsReserved(seatsTaken);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
+  
     fetchData();
   }, []);
 
@@ -66,33 +68,71 @@ function SeatingChart() {
     }
   };
 
-  const handleSubmit = () => {
-    console.log(seatPreference)
-    console.log(selectedSeats)
-    console.log("FAM " + familySize)
-    
+  const handleSubmit = async () => {
+    console.log(seatPreference);
+    console.log(selectedSeats);
+    console.log("FAM " + familySize);
+  
+    try {
+      const documentRef = doc(db, 'default', 'default');
+      let updatedSeatsTaken;
+  
+      if (seatPreference === 'Specific Seat' && selectedSeats.length > 0) {
+        var seatNu = selectedSeats[0].charAt(selectedSeats[0].length - 1)
+        if(seatNu == 'A' || seatNu == 'F') {
+            updatedSeatsTaken = await updateDoc(documentRef, {
+                seatsTaken: arrayUnion(...selectedSeats),
+                Window: increment(-1),
+              });    
+        }
+        if(seatNu == 'B' || seatNu == 'E') {
+            updatedSeatsTaken = await updateDoc(documentRef, {
+                seatsTaken: arrayUnion(...selectedSeats),
+                Middle: increment(-1),
+              });    
+        }
+        if(seatNu == 'C' || seatNu == 'D') {
+            updatedSeatsTaken = await updateDoc(documentRef, {
+                seatsTaken: arrayUnion(...selectedSeats),
+                Aisle: increment(-1),
+              });    
+        }
+        
 
-    if(seatPreference == "With Family" && (familySize > 3 || familySize < 2)){
-        toast.error("Please enter valid family size")
+      } else if (seatPreference === 'With Family' && familySize >= 2) {
+        // You might handle family size logic here and update the seatsTaken array accordingly
+        // For simplicity, let's assume it's just one seat
+        //updatedSeatsTaken = await updateDoc(documentRef, {
+        //  seatsTaken: arrayUnion('3A'), // Replace '3A' with the logic for determining the seat
+        //});
+      }
+  
+      console.log('Seats taken updated:', updatedSeatsTaken);
+      toast.success('Seats reserved successfully!');
+    } catch (error) {
+      console.error('Error updating seats taken:', error);
+      toast.error('Error updating seats taken');
     }
-
-  }
+  };
 
   const renderSeat = (row, col) => {
     const seat = `${row}${col}`;
+    const isReserved = seatsReserved.includes(seat);
+  
     return (
       <td
         key={seat}
-        className={`text-center hover:bg-blue-200 bg-gray-300 ${
-          selectedSeats.includes(seat) ? 'bg-green-500' : ''
-        }`}
-        onClick={() => handleSeatClick(seat)}
+        className={`text-center ${
+          isReserved ? 'bg-red-500 cursor-not-allowed' : 'hover:bg-blue-200'
+        } bg-gray-300 ${selectedSeats.includes(seat) ? 'bg-green-500' : ''}`}
+        onClick={() => (!isReserved ? handleSeatClick(seat) : null)}
         style={{ width: '50px', height: '50px' }}
       >
         {seat}
       </td>
     );
   };
+  
 
   return (
     <div className='grid grid-cols-2 h-screen'>
