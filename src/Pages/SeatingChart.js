@@ -1,14 +1,32 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { db } from '../firebase';
+import { useEffect } from 'react';
 
 function SeatingChart() {
-
-
 
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [seatPreference, setSeatPreference] = useState('');
   const [familySize, setFamilySize] = useState(2);
+  const [seatsReserved, setSeatsReserved] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const documentRef = db.collection('default').doc('default');
+        const documentData = await documentRef.get();
+        if (documentData.exists) {
+          const seatsTaken = documentData.data().seatsTaken || [];
+          setSeatsReserved(seatsTaken);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const setNoPreference = () => {
     setSelectedSeats([])
