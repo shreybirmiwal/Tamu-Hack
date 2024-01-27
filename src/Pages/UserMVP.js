@@ -1,5 +1,6 @@
 import React from 'react'
 import SeatCard from '../Components/SeatCard';
+import Aisle from '../Components/Aisle';
 
 const seatList = [];
 
@@ -17,25 +18,21 @@ for (let row = 1; row <= 20; row++) {
 function UserMVP() {
   return (
 
-    <div>
-        {seatList.map((seat, index) => (
-            ((index+1) % 3 === 0 && (index+1) % 6 !== 0) ? (
-            <>
-                <SeatCard key={index} seatNumber={seat.seatNumber} isTaken={seat.isTaken} />
-                EWMPTY SEAT
-            </>
-            ) : (
-                ((index+1) % 3 === 0 && (index+1) % 6 == 0) ? (
-                    <>
-                <SeatCard key={index} seatNumber={seat.seatNumber} isTaken={seat.isTaken} />
-                NEXT ROW
-                </>
-            ) : (
-                <SeatCard key={index} seatNumber={seat.seatNumber} isTaken={seat.isTaken} />
-            )
-            )
-        ))}
+    <div className='grid grid-cols-2'>
+        <div className="grid grid-cols-7 gap-4">
+            {seatList.map((seat, index) => (
+                <React.Fragment key={index}>
+                    <SeatCard seatNumber={seat.seatNumber} isTaken={seat.isTaken} />
+
+                    {(index + 1) % 3 === 0 && (index + 1) % 6 !== 0 && (
+                        <Aisle />
+                    )}
+                    
+                </React.Fragment>
+            ))}
+        </div>
     </div>
+
 
   )
 }
