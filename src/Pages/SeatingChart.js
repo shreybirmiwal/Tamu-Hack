@@ -12,6 +12,13 @@ function SeatingChart() {
   const [familySize, setFamilySize] = useState(2);
   const [seatsReserved, setSeatsReserved] = useState([]);
 
+
+  const [totalSeats, setTotalSeats] = useState()
+  const [totalAisle, setTotalAisle] = useState()
+  const [totalWindow, setTotalWindow] = useState()
+  const [totalMiddle, setTotalMiddle] = useState()
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,6 +26,11 @@ function SeatingChart() {
         const seatsTaken = [];
         querySnapshot.forEach((doc) => {
           seatsTaken.push(...doc.data().seatsTaken);
+          setTotalSeats(doc.data().Total)
+          setTotalAisle(doc.data().Aisle)
+          setTotalWindow(doc.data().Window)
+          setTotalMiddle(doc.data().Middle)
+
         });
         console.log("TAKEN SEATS", seatsTaken);
         setSeatsReserved(seatsTaken);
@@ -69,6 +81,21 @@ function SeatingChart() {
   };
 
   const handleSubmit = async () => {
+
+    if(seatPreference === ""){
+        toast.error('Please select a type of seat', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+        return
+    }
+
     console.log(seatPreference);
     console.log(selectedSeats);
     console.log("FAM " + familySize);
@@ -79,22 +106,25 @@ function SeatingChart() {
   
       if (seatPreference === 'Specific Seat' && selectedSeats.length > 0) {
         var seatNu = selectedSeats[0].charAt(selectedSeats[0].length - 1)
-        if(seatNu == 'A' || seatNu == 'F') {
+        if(seatNu === 'A' || seatNu === 'F') {
             updatedSeatsTaken = await updateDoc(documentRef, {
                 seatsTaken: arrayUnion(...selectedSeats),
                 Window: increment(-1),
+                Total: increment(-1)
               });    
         }
-        if(seatNu == 'B' || seatNu == 'E') {
+        if(seatNu === 'B' || seatNu === 'E') {
             updatedSeatsTaken = await updateDoc(documentRef, {
                 seatsTaken: arrayUnion(...selectedSeats),
                 Middle: increment(-1),
+                Total: increment(-1)
               });    
         }
-        if(seatNu == 'C' || seatNu == 'D') {
+        if(seatNu === 'C' || seatNu === 'D') {
             updatedSeatsTaken = await updateDoc(documentRef, {
                 seatsTaken: arrayUnion(...selectedSeats),
                 Aisle: increment(-1),
+                Total: increment(-1)
               });    
         }
         
@@ -105,32 +135,110 @@ function SeatingChart() {
         //updatedSeatsTaken = await updateDoc(documentRef, {
         //  seatsTaken: arrayUnion('3A'), // Replace '3A' with the logic for determining the seat
         //});
+      } else if(seatPreference == "Window"){
+            updatedSeatsTaken = await updateDoc(documentRef, {
+                Window: increment(-1),
+                Total: increment(-1)
+            });    
       }
+      else if(seatPreference == "Middle"){
+        updatedSeatsTaken = await updateDoc(documentRef, {
+            Middle: increment(-1),
+            Total: increment(-1)
+        });    
+    }
+    else if(seatPreference == "Aisle"){
+        updatedSeatsTaken = await updateDoc(documentRef, {
+            Aisle: increment(-1),
+            Total: increment(-1)
+        });    
+    }
+    else if(seatPreference == "Window"){
+        updatedSeatsTaken = await updateDoc(documentRef, {
+            Total: increment(-1)
+        });    
+    }
   
       console.log('Seats taken updated:', updatedSeatsTaken);
-      toast.success('Seats reserved successfully!');
+
+      toast.success('Seats updated successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
     } catch (error) {
       console.error('Error updating seats taken:', error);
-      toast.error('Error updating seats taken');
+      toast.error('Error updating seats', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
     }
+
+    setTimeout(() => {
+        window.location.reload();
+      }, 1000);
   };
 
   const renderSeat = (row, col) => {
     const seat = `${row}${col}`;
     const isReserved = seatsReserved.includes(seat);
   
+    let seatClass = 'text-center';
+    
+    if (totalSeats <= 0) {
+      seatClass += ' bg-red-500 cursor-not-allowed';
+    } else {
+      if (totalAisle <= 0 && isAisleSeat(seat)) {
+        seatClass += ' bg-red-500 cursor-not-allowed';
+      } else if (totalWindow <= 0 && isWindowSeat(seat)) {
+        seatClass += ' bg-red-500 cursor-not-allowed';
+      } else if (totalMiddle <= 0 && isMiddleSeat(seat)) {
+        seatClass += ' bg-red-500 cursor-not-allowed';
+      } else {
+        seatClass += isReserved ? ' bg-red-500 cursor-not-allowed' : ' hover:bg-blue-200';
+        seatClass += selectedSeats.includes(seat) ? ' bg-green-500' : '';
+      }
+    }
+  
     return (
       <td
         key={seat}
-        className={`text-center ${
-          isReserved ? 'bg-red-500 cursor-not-allowed' : 'hover:bg-blue-200'
-        } bg-gray-300 ${selectedSeats.includes(seat) ? 'bg-green-500' : ''}`}
+        className={seatClass}
         onClick={() => (!isReserved ? handleSeatClick(seat) : null)}
         style={{ width: '50px', height: '50px' }}
       >
         {seat}
       </td>
     );
+  };
+
+  const isAisleSeat = (seat) => {
+    var seatNu = seat.charAt(seat.length - 1)
+    if(seatNu == 'C' || seatNu == 'D') return true;
+    return false;
+  };
+  
+  const isWindowSeat = (seat) => {
+    var seatNu = seat.charAt(seat.length - 1)
+    if(seatNu == 'A' || seatNu == 'F') return true;
+    return false;
+  };
+  
+  const isMiddleSeat = (seat) => {
+    var seatNu = seat.charAt(seat.length - 1)
+    if(seatNu == 'B' || seatNu == 'E') return true;
+    return false;
   };
   
 
@@ -178,31 +286,47 @@ function SeatingChart() {
   </button>
   <br />
   <button
-    onClick={setAisle}
-    className={`bg-gray-300 hover:bg-blue-200 text-blue-700 px-4 py-2 rounded-md m-1 ${
-      seatPreference === 'Aisle' ? 'bg-blue-200' : ''
-    }`}
-  >
-    Aisle
-  </button>
+  onClick={setAisle}
+  className={`${
+    totalAisle <= 0 || totalSeats <= 0
+      ? 'bg-red-500 cursor-not-allowed'
+      : 'bg-gray-300 hover:bg-blue-200'
+  } text-blue-700 px-4 py-2 rounded-md m-1 ${
+    seatPreference === 'Aisle' ? 'bg-blue-200' : ''
+  }`}
+  disabled={totalAisle <= 0 || totalSeats <= 0}
+>
+  Aisle
+</button>
   <br />
   <button
-    onClick={setMiddle}
-    className={`bg-gray-300 hover:bg-blue-200 text-blue-700 px-4 py-2 rounded-md m-1 ${
-      seatPreference === 'Middle' ? 'bg-blue-200' : ''
-    }`}
-  >
-    Middle
-  </button>
+  onClick={setMiddle}
+  className={`${
+    totalMiddle <= 0 || totalSeats <= 0
+      ? 'bg-red-500 cursor-not-allowed'
+      : 'bg-gray-300 hover:bg-blue-200'
+  } text-blue-700 px-4 py-2 rounded-md m-1 ${
+    seatPreference === 'Middle' ? 'bg-blue-200' : ''
+  }`}
+  disabled={totalMiddle <= 0 || totalSeats <= 0}
+>
+  Middle
+</button>
   <br />
   <button
-    onClick={setWindow}
-    className={`bg-gray-300 hover:bg-blue-200 text-blue-700 px-4 py-2 rounded-md m-1 ${
-      seatPreference === 'Window' ? 'bg-blue-200' : ''
-    }`}
-  >
-    Window
-  </button>
+  onClick={setWindow}
+  className={`${
+    totalWindow <= 0 || totalSeats <= 0
+      ? 'bg-red-500 cursor-not-allowed'
+      : 'bg-gray-300 hover:bg-blue-200'
+  } text-blue-700 px-4 py-2 rounded-md m-1 ${
+    seatPreference === 'Window' ? 'bg-blue-200' : ''
+  }`}
+  disabled={totalWindow <= 0 || totalSeats <= 0}
+>
+  Window
+</button>
+
   <br />
   <div className='mt-3'>
             <button
