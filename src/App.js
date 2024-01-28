@@ -2,7 +2,7 @@ import UserMVP from "./Pages/UserMVP";
 
 import SeatingChart from "./Pages/SeatingChart";
 import { Landing } from "./Pages/Landing";
-
+import LandingPage from "./Pages/LandingPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom" 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Routes>
           
-          <Route exact path="/" element={<Landing />}/>
+          <Route exact path="/" element={<LandingPage />}/>
           <Route path="/chart" element={<SeatingChart />}/>
 
         </Routes>

@@ -210,7 +210,7 @@ function SeatingChart() {
     }
 
     setTimeout(() => {
-        //window.location.reload();
+        window.location.reload();
       }, 1000);
   };
   function areSeatsNextToEachOther(totalSeats) {
@@ -403,11 +403,16 @@ function SeatingChart() {
             />
         </div>
         <div className='mt-3'>
-            <button
+        <button
             onClick={setWithFamily}
-            className={`bg-gray-300 hover:bg-blue-200 text-blue-700 px-4 py-2 rounded-md ${
+            className={`${
+                areSeatsNextToEachOther(OGTOTAL).length === 0
+                ? 'bg-red-500 cursor-not-allowed'
+                : 'bg-gray-300 hover:bg-blue-200'
+            } text-blue-700 px-4 py-2 rounded-md ${
                 seatPreference === 'With Family' ? 'bg-blue-200' : ''
             }`}
+            disabled={areSeatsNextToEachOther(OGTOTAL).length === 0}
             >
             With Family
             </button>
