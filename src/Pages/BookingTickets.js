@@ -7,7 +7,6 @@ import { getDocs, collection, doc, updateDoc, arrayUnion, increment } from 'fire
 import NoSeatPreference from './Subpage-Booking/NoSeatPreference';
 import SpecificSeat from './Subpage-Booking/SpecificSeat';
 import AisleMiddleWindow from './Subpage-Booking/AisleMiddleWindow';
-import SeatWithParty from './Subpage-Booking/SeatWithParty';
 
 function BookingTickets() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -27,7 +26,7 @@ function BookingTickets() {
   const [totalWindow, setTotalWindow] = useState()
   const [totalMiddle, setTotalMiddle] = useState()
   const [seatPreference, setSeatPreference] = useState('');
-  const [OGTOTAL, setOGTOTAL] = useState(10);
+  const [OGTOTAL, setOGTOTAL] = useState(66);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,8 +51,60 @@ function BookingTickets() {
     fetchData();
   }, []);
 
-  
+  function areSeatsNextToEachOther(totalSeats) {
+    const result = [];
+    console.log("SEATS RESERVED" + seatsReserved)
+    if(!(totalMiddle >= 1 && totalAisle >= 1 && totalWindow >= 1)) return result;
 
+    for (let i = 1; i <= totalSeats / 6; i++) {
+      if (!seatsReserved.includes(i + "A") && !seatsReserved.includes(i + "B") && !seatsReserved.includes(i + "C")) {
+        result.push(i + "A", i + "B", i + "C");
+      }
+      if (!seatsReserved.includes(i + "D") && !seatsReserved.includes(i + "E") && !seatsReserved.includes(i + "F")) {
+        result.push(i + "D", i + "E", i + "F");
+      }
+    }
+  
+    return result;
+  }
+  const success = () => {
+    toast.success('Seats updated successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+  }
+
+  const comfirmPARTY = async () => {
+
+    const documentRef = doc(db, 'default', 'default');
+    let updatedSeatsTaken;
+
+    var arT = areSeatsNextToEachOther(OGTOTAL)
+    if(arT.length !== 0){
+        updatedSeatsTaken = await updateDoc(documentRef, {
+            seatsTaken: arrayUnion(...arT),
+            Aisle: increment(-1),
+            Window: increment(-1),
+            Middle: increment(-1),
+
+            Total: increment(-3)
+          });  
+        console.log("TRUE");
+    }
+
+    success()
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+
+  }
 
   return (
     <div className='h-screen'>
@@ -90,8 +141,6 @@ const renderSelectedComponent = (selectedOption, onBack) => {
       return <SpecificSeat onBack={onBack}/>;
     case 'AisleMiddleWindow':
       return <AisleMiddleWindow onBack={onBack} />;
-    case 'SeatWithParty':
-      return <SeatWithParty onBack={onBack} />;
     default:
       return null;
   }
@@ -147,7 +196,7 @@ const renderOptionButtons = (handleOptionSelect) => (
       </div>
       <button
         className="bg-white text-black py-2 px-4 rounded-md w-full hover:bg-gray-400"
-        onClick={() => handleOptionSelect('SeatWithParty')}
+        onClick={() => comfirmPARTY()}
       >
         Seat with party
       </button>

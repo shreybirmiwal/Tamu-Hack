@@ -47,6 +47,25 @@ const SpecificSeat = ({ onBack }) => {
     });
   };
 
+  const isAisleSeat = (seat) => {
+    var seatNu = seat.charAt(seat.length - 1);
+    if (seatNu === 'C' || seatNu === 'D') return true;
+    return false;
+  };
+
+  const isWindowSeat = (seat) => {
+    var seatNu = seat.charAt(seat.length - 1);
+    if (seatNu === 'A' || seatNu === 'F') return true;
+    return false;
+  };
+
+  const isMiddleSeat = (seat) => {
+    var seatNu = seat.charAt(seat.length - 1);
+    if (seatNu === 'B' || seatNu === 'E') return true;
+    return false;
+  };
+
+
   const handleSeatClick = (seat) => {
     if (selectedSeats.includes(seat)) {
       setSelectedSeats(selectedSeats.filter((selectedSeat) => selectedSeat !== seat));
@@ -126,23 +145,6 @@ const SpecificSeat = ({ onBack }) => {
       }
     }
 
-    const isAisleSeat = (seat) => {
-      var seatNu = seat.charAt(seat.length - 1);
-      if (seatNu === 'C' || seatNu === 'D') return true;
-      return false;
-    };
-
-    const isWindowSeat = (seat) => {
-      var seatNu = seat.charAt(seat.length - 1);
-      if (seatNu === 'A' || seatNu === 'F') return true;
-      return false;
-    };
-
-    const isMiddleSeat = (seat) => {
-      var seatNu = seat.charAt(seat.length - 1);
-      if (seatNu === 'B' || seatNu === 'E') return true;
-      return false;
-    };
 
     return (
       <td
