@@ -63,11 +63,11 @@ function BookingTickets() {
     for (let i = 1; i <= totalSeats / 6; i++) {
       if (!seatsReserved.includes(i + "A") && !seatsReserved.includes(i + "B") && !seatsReserved.includes(i + "C")) {
         result.push(i + "A", i + "B", i + "C");
-        return;
+        return result;
       }
       if (!seatsReserved.includes(i + "D") && !seatsReserved.includes(i + "E") && !seatsReserved.includes(i + "F")) {
         result.push(i + "D", i + "E", i + "F");
-        return;
+        return result;
       }
     }
   
