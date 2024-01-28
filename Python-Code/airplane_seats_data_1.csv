@@ -1,0 +1,301 @@
+Seat Type,Incentive,Capacity,Demand,Cost
+Any One Seat,36,237,56,156
+Any One Seat,27,368,42,158
+Any One Seat,33,573,83,140
+Any One Seat,34,554,99,151
+Any One Seat,25,703,42,139
+Any One Seat,24,293,100,163
+Any One Seat,26,570,41,134
+Any One Seat,37,282,60,156
+Any One Seat,37,255,17,166
+Any One Seat,31,366,38,146
+Any One Seat,24,102,53,161
+Any One Seat,32,464,38,137
+Any One Seat,37,622,40,143
+Any One Seat,23,775,2,121
+Any One Seat,21,712,14,116
+Any One Seat,33,267,62,153
+Any One Seat,40,349,75,168
+Any One Seat,34,523,4,144
+Any One Seat,28,364,37,156
+Any One Seat,37,564,32,146
+Any One Seat,20,559,58,128
+Any One Seat,39,254,88,168
+Any One Seat,35,440,87,144
+Any One Seat,33,496,31,144
+Any One Seat,38,649,88,147
+Any One Seat,29,107,39,158
+Any One Seat,21,621,89,144
+Any One Seat,20,210,2,147
+Any One Seat,33,635,65,140
+Any One Seat,34,749,77,146
+Any One Seat,30,132,77,158
+Any One Seat,35,192,47,171
+Any One Seat,28,624,27,127
+Any One Seat,30,597,32,146
+Any One Seat,33,550,48,148
+Any One Seat,39,304,85,168
+Any One Seat,36,592,5,140
+Any One Seat,25,622,60,137
+Any One Seat,25,353,59,144
+Any One Seat,21,172,21,150
+Any One Seat,40,525,0,151
+Any One Seat,23,154,84,171
+Any One Seat,20,322,58,158
+Any One Seat,21,423,26,145
+Any One Seat,37,755,78,148
+Any One Seat,20,180,40,163
+Any One Seat,35,325,38,146
+Any One Seat,25,509,7,147
+Any One Seat,37,252,11,162
+Any One Seat,28,734,98,130
+One Aisle Seat,48,816,43,130
+One Aisle Seat,33,400,64,149
+One Aisle Seat,45,600,5,136
+One Aisle Seat,46,629,83,147
+One Aisle Seat,31,431,7,151
+One Aisle Seat,38,381,53,164
+One Aisle Seat,45,326,79,169
+One Aisle Seat,31,241,49,157
+One Aisle Seat,42,426,65,159
+One Aisle Seat,45,464,48,149
+One Aisle Seat,35,510,30,135
+One Aisle Seat,34,272,42,152
+One Aisle Seat,50,251,74,170
+One Aisle Seat,33,246,98,163
+One Aisle Seat,47,256,80,176
+One Aisle Seat,42,851,42,129
+One Aisle Seat,49,680,81,149
+One Aisle Seat,42,810,29,128
+One Aisle Seat,36,424,55,155
+One Aisle Seat,44,192,94,170
+One Aisle Seat,37,678,6,138
+One Aisle Seat,34,681,67,139
+One Aisle Seat,39,610,94,151
+One Aisle Seat,35,393,94,153
+One Aisle Seat,41,434,3,150
+One Aisle Seat,46,116,63,164
+One Aisle Seat,43,419,20,160
+One Aisle Seat,48,651,74,152
+One Aisle Seat,43,625,52,153
+One Aisle Seat,39,725,84,131
+One Aisle Seat,32,387,94,147
+One Aisle Seat,45,255,45,170
+One Aisle Seat,39,618,36,147
+One Aisle Seat,43,478,4,153
+One Aisle Seat,31,349,96,152
+One Aisle Seat,43,624,65,148
+One Aisle Seat,39,370,79,160
+One Aisle Seat,50,545,88,154
+One Aisle Seat,32,162,6,154
+One Aisle Seat,40,129,79,171
+One Aisle Seat,45,272,31,164
+One Aisle Seat,34,321,97,169
+One Aisle Seat,34,283,26,163
+One Aisle Seat,32,373,19,143
+One Aisle Seat,35,490,26,149
+One Aisle Seat,42,141,18,169
+One Aisle Seat,35,681,30,136
+One Aisle Seat,46,314,30,151
+One Aisle Seat,50,768,87,140
+One Aisle Seat,44,163,33,167
+One Middle Seat,20,603,75,142
+One Middle Seat,15,700,16,128
+One Middle Seat,20,773,19,115
+One Middle Seat,5,541,41,125
+One Middle Seat,3,434,56,133
+One Middle Seat,14,479,64,150
+One Middle Seat,11,648,32,117
+One Middle Seat,10,457,51,144
+One Middle Seat,20,405,94,150
+One Middle Seat,8,335,18,148
+One Middle Seat,19,566,82,147
+One Middle Seat,9,451,100,135
+One Middle Seat,12,458,71,136
+One Middle Seat,17,820,15,128
+One Middle Seat,20,298,87,157
+One Middle Seat,20,159,41,158
+One Middle Seat,11,351,6,131
+One Middle Seat,15,319,90,145
+One Middle Seat,13,512,18,140
+One Middle Seat,2,216,76,149
+One Middle Seat,6,685,56,118
+One Middle Seat,7,492,35,136
+One Middle Seat,14,479,100,154
+One Middle Seat,6,511,79,125
+One Middle Seat,9,257,20,140
+One Middle Seat,11,323,41,142
+One Middle Seat,10,673,52,132
+One Middle Seat,9,481,41,133
+One Middle Seat,0,212,6,143
+One Middle Seat,17,166,11,142
+One Middle Seat,14,642,59,130
+One Middle Seat,16,792,2,124
+One Middle Seat,5,371,35,136
+One Middle Seat,16,173,99,154
+One Middle Seat,18,547,54,128
+One Middle Seat,8,162,90,160
+One Middle Seat,11,342,22,143
+One Middle Seat,9,802,100,134
+One Middle Seat,19,337,5,134
+One Middle Seat,7,597,57,132
+One Middle Seat,0,187,18,138
+One Middle Seat,3,592,85,133
+One Middle Seat,10,284,67,154
+One Middle Seat,18,217,12,140
+One Middle Seat,4,536,55,126
+One Middle Seat,18,398,87,146
+One Middle Seat,17,104,54,150
+One Middle Seat,11,133,88,162
+One Middle Seat,8,408,59,137
+One Middle Seat,4,571,62,124
+One Window Seat,55,723,89,154
+One Window Seat,65,692,10,143
+One Window Seat,51,644,39,152
+One Window Seat,67,379,31,167
+One Window Seat,67,169,47,174
+One Window Seat,68,443,66,159
+One Window Seat,70,706,2,143
+One Window Seat,64,792,1,148
+One Window Seat,61,723,2,142
+One Window Seat,67,566,70,152
+One Window Seat,51,181,82,182
+One Window Seat,50,698,52,138
+One Window Seat,64,539,49,153
+One Window Seat,57,644,37,152
+One Window Seat,57,531,1,146
+One Window Seat,50,134,12,163
+One Window Seat,70,557,58,163
+One Window Seat,51,218,2,173
+One Window Seat,50,243,84,170
+One Window Seat,67,850,52,142
+One Window Seat,55,624,13,139
+One Window Seat,58,593,81,166
+One Window Seat,67,199,87,185
+One Window Seat,66,466,40,171
+One Window Seat,67,297,24,161
+One Window Seat,54,412,68,163
+One Window Seat,70,327,66,181
+One Window Seat,59,328,68,171
+One Window Seat,53,423,87,166
+One Window Seat,57,817,17,144
+One Window Seat,67,543,1,147
+One Window Seat,65,753,43,157
+One Window Seat,64,525,32,167
+One Window Seat,59,673,61,154
+One Window Seat,61,340,100,165
+One Window Seat,54,109,76,189
+One Window Seat,53,802,61,137
+One Window Seat,55,697,50,149
+One Window Seat,54,137,100,174
+One Window Seat,53,282,43,171
+One Window Seat,55,760,48,139
+One Window Seat,57,268,33,176
+One Window Seat,53,102,74,177
+One Window Seat,69,783,98,158
+One Window Seat,57,488,43,149
+One Window Seat,50,339,38,170
+One Window Seat,66,614,51,166
+One Window Seat,65,335,30,165
+One Window Seat,64,648,97,168
+One Window Seat,63,417,33,170
+One Specific Seat,88,781,38,164
+One Specific Seat,85,640,40,160
+One Specific Seat,78,843,90,150
+One Specific Seat,82,288,90,195
+One Specific Seat,70,467,96,175
+One Specific Seat,90,532,16,163
+One Specific Seat,73,588,70,160
+One Specific Seat,89,405,54,180
+One Specific Seat,75,397,44,178
+One Specific Seat,79,573,62,177
+One Specific Seat,84,236,23,193
+One Specific Seat,74,472,12,168
+One Specific Seat,97,201,92,202
+One Specific Seat,83,807,1,146
+One Specific Seat,83,702,11,152
+One Specific Seat,96,819,13,169
+One Specific Seat,80,794,84,149
+One Specific Seat,73,765,34,157
+One Specific Seat,94,161,62,203
+One Specific Seat,75,422,27,162
+One Specific Seat,80,835,60,153
+One Specific Seat,82,628,18,164
+One Specific Seat,93,788,11,168
+One Specific Seat,87,540,24,171
+One Specific Seat,92,311,95,198
+One Specific Seat,86,829,1,158
+One Specific Seat,96,130,74,204
+One Specific Seat,71,484,99,178
+One Specific Seat,93,494,76,171
+One Specific Seat,100,433,52,183
+One Specific Seat,79,306,3,184
+One Specific Seat,85,134,5,189
+One Specific Seat,74,574,71,175
+One Specific Seat,93,614,78,175
+One Specific Seat,79,588,33,157
+One Specific Seat,70,272,46,167
+One Specific Seat,94,412,72,189
+One Specific Seat,78,174,97,192
+One Specific Seat,97,427,21,180
+One Specific Seat,76,658,68,153
+One Specific Seat,100,101,79,193
+One Specific Seat,99,277,58,201
+One Specific Seat,88,571,45,167
+One Specific Seat,78,191,51,176
+One Specific Seat,86,184,13,190
+One Specific Seat,79,623,3,160
+One Specific Seat,84,471,37,163
+One Specific Seat,75,549,70,167
+One Specific Seat,80,428,51,171
+One Specific Seat,76,464,31,163
+Family Set of Three Seats,86,367,98,534
+Family Set of Three Seats,74,696,4,462
+Family Set of Three Seats,80,158,16,573
+Family Set of Three Seats,88,746,75,495
+Family Set of Three Seats,77,393,57,516
+Family Set of Three Seats,85,345,41,561
+Family Set of Three Seats,88,228,51,564
+Family Set of Three Seats,82,724,89,474
+Family Set of Three Seats,87,566,87,528
+Family Set of Three Seats,72,492,74,528
+Family Set of Three Seats,90,812,16,459
+Family Set of Three Seats,77,519,81,528
+Family Set of Three Seats,89,396,56,525
+Family Set of Three Seats,71,349,76,552
+Family Set of Three Seats,72,840,23,426
+Family Set of Three Seats,89,796,35,453
+Family Set of Three Seats,71,729,93,498
+Family Set of Three Seats,74,680,44,441
+Family Set of Three Seats,78,168,25,537
+Family Set of Three Seats,81,174,43,579
+Family Set of Three Seats,89,274,93,576
+Family Set of Three Seats,86,475,32,519
+Family Set of Three Seats,76,631,24,459
+Family Set of Three Seats,78,128,38,543
+Family Set of Three Seats,89,513,22,495
+Family Set of Three Seats,88,642,10,474
+Family Set of Three Seats,79,851,30,480
+Family Set of Three Seats,81,291,72,555
+Family Set of Three Seats,84,438,14,519
+Family Set of Three Seats,72,342,51,525
+Family Set of Three Seats,80,483,27,495
+Family Set of Three Seats,75,304,42,540
+Family Set of Three Seats,70,184,70,540
+Family Set of Three Seats,72,232,19,540
+Family Set of Three Seats,90,402,50,558
+Family Set of Three Seats,77,380,58,531
+Family Set of Three Seats,81,363,51,549
+Family Set of Three Seats,73,274,82,561
+Family Set of Three Seats,83,415,16,501
+Family Set of Three Seats,78,364,39,534
+Family Set of Three Seats,76,693,83,507
+Family Set of Three Seats,83,652,37,513
+Family Set of Three Seats,79,713,68,477
+Family Set of Three Seats,90,565,31,513
+Family Set of Three Seats,71,331,1,531
+Family Set of Three Seats,81,541,15,471
+Family Set of Three Seats,81,477,88,549
+Family Set of Three Seats,71,580,72,480
+Family Set of Three Seats,87,545,18,501
+Family Set of Three Seats,82,324,37,540

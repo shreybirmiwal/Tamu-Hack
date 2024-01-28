@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import backgroundImage from '../LANDING.png';
 import { AdminNav } from '../Components/AdminNav';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   const [colorIndex, setColorIndex] = useState(0);
@@ -31,7 +32,9 @@ const LandingPage = () => {
           The secret to better airplane seating
         </p>
         <button className="bg-blue-500 text-white px-6 py-3 rounded-md text-lg">
-          Get Started
+          <Link to="/book" className="text-white no-underline">
+            Get Started
+          </Link>
         </button>
       </div>
     </div>

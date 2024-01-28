@@ -58,7 +58,7 @@ export function AdminNav() {
   );
  
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-4 py-2 lg:px-8 lg:py-4">
+<Navbar className="w-fullpy-2 lg:py-4">
       <div className="container mx-auto flex items-center justify-center text-blue-gray-900">
 
         <div className="hidden lg:block">{navList}</div>
@@ -104,9 +104,7 @@ export function AdminNav() {
         </IconButton>
       </div>
       <MobileNav open={openNav}>
-        <div className="container mx-auto">
           {navList}
-        </div>
       </MobileNav>
     </Navbar>
   );
