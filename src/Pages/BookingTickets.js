@@ -8,6 +8,10 @@ import NoSeatPreference from './Subpage-Booking/NoSeatPreference';
 import SpecificSeat from './Subpage-Booking/SpecificSeat';
 import AisleMiddleWindow from './Subpage-Booking/AisleMiddleWindow';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 function BookingTickets() {
   const [selectedOption, setSelectedOption] = useState(null);
   const handleOptionSelect = (option) => {
@@ -79,6 +83,18 @@ function BookingTickets() {
         theme: "dark",
         });
   }
+  const error = () => {
+    toast.error('No seating arrangement for family!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+  }
 
   const comfirmPARTY = async () => {
 
@@ -96,9 +112,11 @@ function BookingTickets() {
             Total: increment(-3)
           });  
         console.log("TRUE");
-    }
+        success()
 
-    success()
+    }
+    error()
+
 
     setTimeout(() => {
       window.location.reload();
@@ -120,7 +138,7 @@ function BookingTickets() {
                 renderSelectedComponent(selectedOption, handleBack)
               ) : (
                 // Render the options when no option is selected
-                renderOptionButtons(handleOptionSelect)
+                renderOptionButtons(handleOptionSelect, comfirmPARTY)
 
                 
               )}
@@ -160,7 +178,7 @@ const handleReset = async() => {
   });    
 }
 
-const renderOptionButtons = (handleOptionSelect) => (
+const renderOptionButtons = (handleOptionSelect, comfirmPARTY) => (
   <div className="bg-black p-20 text-white rounded-md text-center">
   <h1 className="font-Inter-Black text-3xl leading-normal mb-7 font-bold">
       How would you like to fly today?
@@ -205,7 +223,7 @@ const renderOptionButtons = (handleOptionSelect) => (
       </div>
     </div>
 
-    
+    <ToastContainer/>
   </div>
 );
 
