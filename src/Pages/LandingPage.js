@@ -2,9 +2,12 @@
 
 import React from 'react';
 import backgroundImage from '../LANDING.png';
-
+import { AdminNav } from '../Components/AdminNav';
 const LandingPage = () => {
   return (
+    <div>
+          <AdminNav/>
+
     <div
       className="h-screen bg-cover bg-center flex flex-col items-start justify-center p-10"
       style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -18,6 +21,8 @@ const LandingPage = () => {
       <button className="bg-blue-500 text-white px-6 py-3 rounded-md text-lg">
         Get Started
       </button>
+    </div>
+    
     </div>
   );
 };
