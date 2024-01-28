@@ -58,6 +58,7 @@ function BookingTickets() {
   return (
     <div className='h-screen'>
       <AdminNav />
+      
       <div className='bg-blue-400 flex items-center justify-center h-full'>
         <div>
           <div
@@ -69,16 +70,13 @@ function BookingTickets() {
               ) : (
                 // Render the options when no option is selected
                 renderOptionButtons(handleOptionSelect)
+
+                
               )}
           </div>
         </div>
-        <button
-    onClick={handleReset}
-    className='bg-blue-200 hover:bg-blue-400 text-white px-4 py-2 rounded-md'
-    >
-    reset
-    </button>
-      </div>
+
+      </div>    
       
     </div>
   );

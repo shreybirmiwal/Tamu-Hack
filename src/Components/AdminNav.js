@@ -6,13 +6,29 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
- 
+import { db } from "../firebase";
+import { doc, updateDoc } from "firebase/firestore";
+
 export function AdminNav() {
 
   const HomePath = `/`;
   const BookPath = `/book`;
 
   const [openNav, setOpenNav] = React.useState(false);
+
+
+  const resetDB = async() => {
+    const documentRef = doc(db, 'default', 'default');
+    let updatedSeatsTaken;
+
+    updatedSeatsTaken = await updateDoc(documentRef, {
+        Total: 12,
+        Aisle: 4,
+        Window: 4,
+        Middle: 4,
+        seatsTaken: []
+    });    
+  }
  
   React.useEffect(() => {
     window.addEventListener(
@@ -54,8 +70,25 @@ export function AdminNav() {
           Book Seats
         </a>
       </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="flex items-center gap-x-2 p-1 font-medium"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m15 15-6 6m0 0-6-6m6 6V9a6 6 0 0 1 12 0v3" />
+        </svg>
+
+
+        <a onClick={resetDB} className="flex items-center">
+          Reset DB
+        </a>
+      </Typography>
     </ul>
   );
+
+  
  
   return (
 <Navbar className="w-fullpy-2 lg:py-4">
