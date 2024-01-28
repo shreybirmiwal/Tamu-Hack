@@ -20,12 +20,12 @@ export function AdminNav() {
   const resetDB = async() => {
     const documentRef = doc(db, 'default', 'default');
     let updatedSeatsTaken;
-
+  
     updatedSeatsTaken = await updateDoc(documentRef, {
-        Total: 12,
-        Aisle: 4,
-        Window: 4,
-        Middle: 4,
+        Total: 66,
+        Aisle: 21,
+        Window: 21,
+        Middle: 21,
         seatsTaken: []
     });    
   }

@@ -1,4 +1,3 @@
-import SeatingChart from "./Pages/SeatingChart";
 import LandingPage from "./Pages/LandingPage";
 import BookingTickets from "./Pages/BookingTickets";
 
@@ -12,7 +11,6 @@ function App() {
         <Routes>
           
           <Route exact path="/" element={<LandingPage />}/>
-          <Route path="/book1" element={<SeatingChart />}/>
           <Route path="/book" element={<BookingTickets />}/>
 
         </Routes>

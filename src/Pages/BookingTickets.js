@@ -63,9 +63,11 @@ function BookingTickets() {
     for (let i = 1; i <= totalSeats / 6; i++) {
       if (!seatsReserved.includes(i + "A") && !seatsReserved.includes(i + "B") && !seatsReserved.includes(i + "C")) {
         result.push(i + "A", i + "B", i + "C");
+        return;
       }
       if (!seatsReserved.includes(i + "D") && !seatsReserved.includes(i + "E") && !seatsReserved.includes(i + "F")) {
         result.push(i + "D", i + "E", i + "F");
+        return;
       }
     }
   
@@ -138,7 +140,7 @@ function BookingTickets() {
                 renderSelectedComponent(selectedOption, handleBack)
               ) : (
                 // Render the options when no option is selected
-                renderOptionButtons(handleOptionSelect, comfirmPARTY)
+                renderOptionButtons(handleOptionSelect, comfirmPARTY, totalSeats)
 
                 
               )}
@@ -170,15 +172,15 @@ const handleReset = async() => {
   let updatedSeatsTaken;
 
   updatedSeatsTaken = await updateDoc(documentRef, {
-      Total: 12,
-      Aisle: 4,
-      Window: 4,
-      Middle: 4,
+      Total: 66,
+      Aisle: 21,
+      Window: 21,
+      Middle: 21,
       seatsTaken: []
   });    
 }
 
-const renderOptionButtons = (handleOptionSelect, comfirmPARTY) => (
+const renderOptionButtons = (handleOptionSelect, comfirmPARTY, totalSeats) => (
   <div className="bg-black p-20 text-white rounded-md text-center">
   <h1 className="font-Inter-Black text-3xl leading-normal mb-7 font-bold">
       How would you like to fly today?
@@ -186,11 +188,15 @@ const renderOptionButtons = (handleOptionSelect, comfirmPARTY) => (
     <div className="grid grid-cols-2 gap-4">
       {/* Four rectangle buttons */}
       <button
-        className="bg-white text-black py-2 px-4 rounded-md w-full hover:bg-gray-400 relative"
-        onClick={() => handleOptionSelect('NoSeatPreference')}
-      >
-        No Seat Preference
-      </button>
+      className={`bg-${totalSeats <= 0 ? 'red-500 cursor-not-allowed' : 'white'} text-${totalSeats <= 0 ? 'gray-300' : 'black'} py-2 px-4 rounded-md w-full hover:bg-gray-400 relative`}
+      onClick={() => totalSeats > 0 && handleOptionSelect('NoSeatPreference')}
+      disabled={totalSeats <= 0}
+    >
+      No Seat Preference
+      {totalSeats <= 0 && (
+        <span className="tooltip">No available seats</span>
+      )}
+    </button>
       <div>
         <p className='text-green-500'> Save 5$ | 500 miles </p>
       </div>
