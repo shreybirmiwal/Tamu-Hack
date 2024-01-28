@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { db } from '../firebase';
 import { useEffect } from 'react';
 import { getDocs, collection, doc, updateDoc, arrayUnion, increment } from 'firebase/firestore';
+import { AdminNav } from '../Components/AdminNav';
 
 function SeatingChart() {
 
@@ -298,6 +299,8 @@ function SeatingChart() {
   }
 
   return (
+    <div className=''>
+        <AdminNav/>
     <div className='grid grid-cols-2 h-screen'>
       <div className='bg-blue-400 flex items-center justify-center h-full'>
         <div className='h-full w-3/4 flex flex-col'>
@@ -447,6 +450,8 @@ function SeatingChart() {
 
     </div>
     
+    </div>
+            
     </div>
   );
 }
