@@ -1,5 +1,7 @@
 import SeatingChart from "./Pages/SeatingChart";
 import LandingPage from "./Pages/LandingPage";
+import BookingTickets from "./Pages/BookingTickets";
+
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom" 
 
 function App() {
@@ -10,7 +12,8 @@ function App() {
         <Routes>
           
           <Route exact path="/" element={<LandingPage />}/>
-          <Route path="/book" element={<SeatingChart />}/>
+          <Route path="/book1" element={<SeatingChart />}/>
+          <Route path="/book" element={<BookingTickets />}/>
 
         </Routes>
       </Router>
