@@ -9,10 +9,10 @@ function SeatingChart() {
 
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [seatPreference, setSeatPreference] = useState('');
-  const [familySize, setFamilySize] = useState(2);
   const [seatsReserved, setSeatsReserved] = useState([]);
 
 
+  const OGTOTAL = 10
   const [totalSeats, setTotalSeats] = useState()
   const [totalAisle, setTotalAisle] = useState()
   const [totalWindow, setTotalWindow] = useState()
@@ -98,7 +98,6 @@ function SeatingChart() {
 
     console.log(seatPreference);
     console.log(selectedSeats);
-    console.log("FAM " + familySize);
   
     try {
       const documentRef = doc(db, 'default', 'default');
@@ -129,12 +128,37 @@ function SeatingChart() {
         }
         
 
-      } else if (seatPreference === 'With Family' && familySize >= 2) {
-        // You might handle family size logic here and update the seatsTaken array accordingly
-        // For simplicity, let's assume it's just one seat
-        //updatedSeatsTaken = await updateDoc(documentRef, {
-        //  seatsTaken: arrayUnion('3A'), // Replace '3A' with the logic for determining the seat
-        //});
+      } else if (seatPreference === 'With Family') {
+
+        const documentRef = doc(db, 'default', 'default');
+        let updatedSeatsTaken;
+    
+        var arT = areSeatsNextToEachOther(OGTOTAL)
+        if(arT.length !== 0){
+            updatedSeatsTaken = await updateDoc(documentRef, {
+                seatsTaken: arrayUnion(...arT),
+                Aisle: increment(-1),
+                Window: increment(-1),
+                Middle: increment(-1),
+
+                Total: increment(-3)
+              });  
+            console.log("TRUE")
+        } else {
+            toast.error('No seats for family seating available', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+            console.log("FALSE")
+        }
+
+
       } else if(seatPreference == "Window"){
             updatedSeatsTaken = await updateDoc(documentRef, {
                 Window: increment(-1),
@@ -153,7 +177,7 @@ function SeatingChart() {
             Total: increment(-1)
         });    
     }
-    else if(seatPreference == "Window"){
+    else if(seatPreference == "No Preference"){
         updatedSeatsTaken = await updateDoc(documentRef, {
             Total: increment(-1)
         });    
@@ -186,16 +210,33 @@ function SeatingChart() {
     }
 
     setTimeout(() => {
-        window.location.reload();
+        //window.location.reload();
       }, 1000);
   };
+  function areSeatsNextToEachOther(totalSeats) {
+    const result = [];
+    console.log("SEATS RESERVED" + seatsReserved)
+    if(!(totalMiddle >= 1 && totalAisle >= 1 && totalWindow >= 1)) return result;
+
+    for (let i = 1; i <= totalSeats / 6; i++) {
+      if (!seatsReserved.includes(i + "A") && !seatsReserved.includes(i + "B") && !seatsReserved.includes(i + "C")) {
+        result.push(i + "A", i + "B", i + "C");
+      }
+      if (!seatsReserved.includes(i + "D") && !seatsReserved.includes(i + "E") && !seatsReserved.includes(i + "F")) {
+        result.push(i + "D", i + "E", i + "F");
+      }
+    }
+  
+    return result;
+  }
 
   const renderSeat = (row, col) => {
     const seat = `${row}${col}`;
     const isReserved = seatsReserved.includes(seat);
   
-    let seatClass = 'text-center';
-    
+    let seatClass = 'text-center rounded-md'; // Added rounded-md for rounded seats
+    seatClass += ' ml-2 mt-2'; // Added margin classes for distance between seats
+  
     if (totalSeats <= 0) {
       seatClass += ' bg-red-500 cursor-not-allowed';
     } else {
@@ -222,6 +263,7 @@ function SeatingChart() {
       </td>
     );
   };
+  
   
 
   const isAisleSeat = (seat) => {
@@ -262,27 +304,29 @@ function SeatingChart() {
           <div className='bg-gray-200 flex-grow p-4'>
             <h1 className='text-center'>Economy Class</h1>
             <table className='w-full mt-5'>
-              <tbody>
-                <tr>
-                  {renderSeat(1, 'A')}
-                  {renderSeat(1, 'B')}
-                  {renderSeat(1, 'C')}
-                  <td className='text-center'>&nbsp;</td>
-                  {renderSeat(1, 'D')}
-                  {renderSeat(1, 'E')}
-                  {renderSeat(1, 'F')}
-                </tr>
-                <div className='mt-3'></div>
-                <tr>
-                  {renderSeat(2, 'A')}
-                  {renderSeat(2, 'B')}
-                  {renderSeat(2, 'C')}
-                  <td className='text-center'>&nbsp;</td>
-                  {renderSeat(2, 'D')}
-                  {renderSeat(2, 'E')}
-                  {renderSeat(2, 'F')}
-                </tr>
-              </tbody>
+            <tbody>
+  <tr>
+    {renderSeat(1, 'A')}
+    {renderSeat(1, 'B')}
+    {renderSeat(1, 'C')}
+    <td className='text-center'>&nbsp;</td>
+    {renderSeat(1, 'D')}
+    {renderSeat(1, 'E')}
+    {renderSeat(1, 'F')}
+  </tr>
+  <tr>
+    <td className='text-center' style={{ height: '20px' }}></td> {/* Adjust the height as needed for spacing */}
+  </tr>
+  <tr>
+    {renderSeat(2, 'A')}
+    {renderSeat(2, 'B')}
+    {renderSeat(2, 'C')}
+    <td className='text-center'>&nbsp;</td>
+    {renderSeat(2, 'D')}
+    {renderSeat(2, 'E')}
+    {renderSeat(2, 'F')}
+  </tr>
+</tbody>
             </table>
           </div>
         </div>
@@ -368,13 +412,7 @@ function SeatingChart() {
             With Family
             </button>
             <div className='ml-2'>
-            <input
-                type='number'
-                placeholder='Family Size'
-                value={familySize}
-                onChange={(e) => setFamilySize(e.target.value)}
-                className='p-2 border rounded-md'
-            />
+
             </div>
         </div>
         <div className='mt-3'>
@@ -385,16 +423,21 @@ function SeatingChart() {
             Submit
             </button>
 
+        </div>
 
-            <button
+        
+        <button
             onClick={handleReset}
             className='bg-blue-200 hover:bg-blue-400 text-white px-4 py-2 rounded-md'
             >
             reset
             </button>
 
+          <p> total available {totalSeats} </p>  
+          <p> total aisle {totalAisle} </p>  
+          <p> total middle {totalMiddle} </p>  
+          <p> total window {totalWindow} </p>  
 
-        </div>
         <ToastContainer/>
 
     </div>
