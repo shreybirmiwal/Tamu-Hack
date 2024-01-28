@@ -1,5 +1,3 @@
-import UserMVP from "./Pages/UserMVP";
-
 import SeatingChart from "./Pages/SeatingChart";
 import LandingPage from "./Pages/LandingPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom" 
@@ -12,7 +10,7 @@ function App() {
         <Routes>
           
           <Route exact path="/" element={<LandingPage />}/>
-          <Route path="/chart" element={<SeatingChart />}/>
+          <Route path="/book" element={<SeatingChart />}/>
 
         </Routes>
       </Router>
