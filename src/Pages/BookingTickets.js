@@ -116,8 +116,9 @@ function BookingTickets() {
         console.log("TRUE");
         success()
 
-    }
+    } else {
     error()
+    }
 
 
     setTimeout(() => {
