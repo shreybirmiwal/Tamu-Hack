@@ -222,6 +222,7 @@ function SeatingChart() {
       </td>
     );
   };
+  
 
   const isAisleSeat = (seat) => {
     var seatNu = seat.charAt(seat.length - 1)
@@ -241,6 +242,18 @@ function SeatingChart() {
     return false;
   };
   
+  const handleReset = async() => {
+    const documentRef = doc(db, 'default', 'default');
+    let updatedSeatsTaken;
+
+    updatedSeatsTaken = await updateDoc(documentRef, {
+        Total: 12,
+        Aisle: 4,
+        Window: 4,
+        Middle: 4,
+        seatsTaken: []
+    });    
+  }
 
   return (
     <div className='grid grid-cols-2 h-screen'>
@@ -371,6 +384,16 @@ function SeatingChart() {
             >
             Submit
             </button>
+
+
+            <button
+            onClick={handleReset}
+            className='bg-blue-200 hover:bg-blue-400 text-white px-4 py-2 rounded-md'
+            >
+            reset
+            </button>
+
+
         </div>
         <ToastContainer/>
 
